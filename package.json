@@ -1,0 +1,18 @@
+{
+  "name": "com.raystudio.rframework",
+  "version": "0.0.1",
+  "displayName": "RFramework",
+  "description": "Ray studio game framework",
+  "unity": "2020.1",
+  "unityRelease": "11f1",
+  "keywords": [
+    "framework",
+    "utilities"
+  ],
+  "author": {
+    "name": "RayStudio",
+    "email": "raystudio9236@gmail.com",
+    "url": "https://github.com/raystudio9236"
+  },
+  "type": "library"
+}
