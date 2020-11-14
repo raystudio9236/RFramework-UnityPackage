@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace RFramework.Common.Log
@@ -43,7 +44,7 @@ namespace RFramework.Common.Log
         {
             if (_level <= Level.Log)
             {
-                Debug.Log($"[{Time.frameCount}] {obj}");
+                Debug.Log($"[{DateTime.Now:hh:mm:ss}] [{Time.frameCount}] {obj}");
             }
         }
 
@@ -51,7 +52,7 @@ namespace RFramework.Common.Log
         {
             if (_level <= Level.Log)
             {
-                Debug.LogFormat($"[{Time.frameCount}] {format}", pars);
+                Debug.LogFormat($"[{DateTime.Now:hh:mm:ss}] [{Time.frameCount}] {format}", pars);
             }
         }
 
@@ -59,7 +60,7 @@ namespace RFramework.Common.Log
         {
             if (_level <= Level.Warning)
             {
-                Debug.LogWarning($"[{Time.frameCount}] {obj}");
+                Debug.LogWarning($"[{DateTime.Now:hh:mm:ss}] [{Time.frameCount}] {obj}");
             }
         }
 
@@ -67,7 +68,7 @@ namespace RFramework.Common.Log
         {
             if (_level <= Level.Warning)
             {
-                Debug.LogWarningFormat($"[{Time.frameCount}] {format}", pars);
+                Debug.LogWarningFormat($"[{DateTime.Now:hh:mm:ss}] [{Time.frameCount}] {format}", pars);
             }
         }
 
@@ -75,7 +76,7 @@ namespace RFramework.Common.Log
         {
             if (_level <= Level.Error)
             {
-                Debug.LogError($"[{Time.frameCount}] {obj}");
+                Debug.LogError($"[{DateTime.Now:hh:mm:ss}] [{Time.frameCount}] {obj}");
             }
         }
 
@@ -83,7 +84,7 @@ namespace RFramework.Common.Log
         {
             if (_level <= Level.Error)
             {
-                Debug.LogErrorFormat($"[{Time.frameCount}] {format}", pars);
+                Debug.LogErrorFormat($"[{DateTime.Now:hh:mm:ss}] [{Time.frameCount}] {format}", pars);
             }
         }
 
