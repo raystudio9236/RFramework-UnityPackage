@@ -1,5 +1,7 @@
 using System;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace RFramework.Common.Log
 {
@@ -97,6 +99,13 @@ namespace RFramework.Common.Log
             {
                 Debug.LogException(obj);
             }
+        }
+
+        [Conditional("DEBUG")]
+        public static void Assert(bool expression)
+        {
+            if (!expression)
+                LogError("Assert Failed!");
         }
     }
 }
