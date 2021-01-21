@@ -1,12 +1,12 @@
 using System;
 using RFramework.Common.Log;
 
-namespace RFramework.Common.Network
+namespace RFramework.Common.IO
 {
     /// <summary>
     /// 变长二进制数据缓存类
     /// </summary>
-    public class NetBuffer
+    public class BinaryBuffer
     {
         private const int INIT_SIZE = 4;
         private const int WARNING_SIZE = 1024 * 1024 * 128;
@@ -16,15 +16,17 @@ namespace RFramework.Common.Network
         private byte[] _buffer;
         private uint _pos;
 
-        public NetBuffer() : this(INIT_SIZE)
+        public uint Pos => _pos;
+
+        public BinaryBuffer() : this(INIT_SIZE)
         {
         }
 
-        public NetBuffer(int size) : this(new byte[size])
+        public BinaryBuffer(int size) : this(new byte[size])
         {
         }
 
-        public NetBuffer(byte[] buffer)
+        public BinaryBuffer(byte[] buffer)
         {
             _buffer = buffer;
         }
@@ -32,7 +34,7 @@ namespace RFramework.Common.Network
         public byte ReadByte()
         {
             if (_pos >= _buffer.Length)
-                throw new IndexOutOfRangeException($"NetBuffer ReadByte, pos out of range ({_pos}/{_buffer.Length})");
+                throw new IndexOutOfRangeException($"BinaryBuffer ReadByte, pos out of range ({_pos}/{_buffer.Length})");
 
             return _buffer[_pos++];
         }
@@ -41,7 +43,7 @@ namespace RFramework.Common.Network
         {
             if (_pos + count >= _buffer.Length)
                 throw new IndexOutOfRangeException(
-                    $"NetBuffer ReadByte, pos out of range ({_pos + count}/{_buffer.Length})");
+                    $"BinaryBuffer ReadByte, pos out of range ({_pos + count}/{_buffer.Length})");
 
             if (outBuffer == null)
                 outBuffer = new byte[count];
