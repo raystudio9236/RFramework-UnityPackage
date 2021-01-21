@@ -1,5 +1,8 @@
 namespace RFramework.Common.Log
 {
+    /// <summary>
+    /// 带标签的日志类
+    /// </summary>
     public class RTagLog
     {
         private string _tag;

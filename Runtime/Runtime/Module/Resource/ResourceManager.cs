@@ -5,8 +5,12 @@ using RFramework.Common.Singleton;
 namespace RFramework.Runtime.Module.Resource
 {
     public delegate void LoadSuccessDelegate(string path, object resource, object userData);
+
     public delegate void LoadFailedDelegate(string path, string errorInfo, object userData);
 
+    /// <summary>
+    /// 资源管理器单例
+    /// </summary>
     public class ResourceManager : MonoSingleton<ResourceManager>
     {
         private struct LoadData

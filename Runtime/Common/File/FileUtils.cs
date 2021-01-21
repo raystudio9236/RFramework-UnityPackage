@@ -5,7 +5,10 @@ using RFramework.Common.Log;
 
 namespace RFramework.Common.File.Utils
 {
-    public class FileUtils
+    /// <summary>
+    /// 文件操作辅助静态类
+    /// </summary>
+    public static class FileUtils
     {
         public static void Write(string content, string fileName)
         {

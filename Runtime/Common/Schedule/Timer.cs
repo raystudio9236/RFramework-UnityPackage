@@ -3,7 +3,10 @@ using System.Collections.Generic;
 namespace RFramework.Common.Pool
 {
     public delegate void TimerDelegate(object userData);
-
+    
+    /// <summary>
+    /// 计划任务类
+    /// </summary>
     public class Timer
     {
         #region Inner Data Structure

@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace RFramework.Common.Singleton
 {
+    /// <summary>
+    /// Unity Mono 单例基类
+    /// </summary>
+    /// <typeparam name="T">单例类型</typeparam>
     public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
         private static T _instance;

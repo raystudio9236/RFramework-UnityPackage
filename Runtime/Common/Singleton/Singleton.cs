@@ -1,5 +1,9 @@
 namespace RFramework.Common.Singleton
 {
+    /// <summary>
+    /// 单例基类
+    /// </summary>
+    /// <typeparam name="T">单例类型</typeparam>
     public abstract class Singleton<T> where T : class, new()
     {
         private static readonly object LockObject = new object();

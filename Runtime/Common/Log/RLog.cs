@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace RFramework.Common.Log
 {
-    public class RLog
+    /// <summary>
+    /// 日志静态类
+    /// </summary>
+    public static class RLog
     {
         public enum Level
         {
@@ -88,7 +91,7 @@ namespace RFramework.Common.Log
             }
         }
 
-        public static void LogException(System.Exception obj = null)
+        public static void LogException(Exception obj = null)
         {
             if (_level <= Level.Error)
             {

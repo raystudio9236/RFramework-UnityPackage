@@ -3,12 +3,19 @@ using System.Collections.Generic;
 
 namespace RFramework.Common.Pool
 {
+    /// <summary>
+    /// 对象池对象接口
+    /// </summary>
     public interface IPoolItem
     {
         void AwakeFromPool();
         void RecycleToPool();
     }
 
+    /// <summary>
+    /// 对象池类
+    /// </summary>
+    /// <typeparam name="T">对象类型</typeparam>
     public class InstancePool<T> where T : IPoolItem, new()
     {
         private readonly Stack<T> _instances;
@@ -62,6 +69,10 @@ namespace RFramework.Common.Pool
         }
     }
 
+    /// <summary>
+    /// 对象子类池
+    /// </summary>
+    /// <typeparam name="T">父类类型</typeparam>
     public class InstancePoolWithSubType<T> : InstancePool<T>
         where T : class, IPoolItem, new()
     {

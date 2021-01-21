@@ -5,6 +5,9 @@ using Object = UnityEngine.Object;
 
 namespace RFramework.Common.Pool
 {
+    /// <summary>
+    /// Unity Prefab 对象池
+    /// </summary>
     [Serializable]
     public class PrefabPool
     {
@@ -83,6 +86,9 @@ namespace RFramework.Common.Pool
         }
     }
 
+    /// <summary>
+    /// Unity Component 对象池
+    /// </summary>
     [Serializable]
     public class PrefabPool<T> where T : Component
     {

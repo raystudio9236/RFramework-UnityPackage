@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace RFramework.Common.Extension
 {
+    /// <summary>
+    /// 数学扩展静态类
+    /// </summary>
     public static class MathExtension
     {
         public static Vector2 ToVector2(this int i)

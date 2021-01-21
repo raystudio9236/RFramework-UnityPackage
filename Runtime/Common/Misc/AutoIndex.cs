@@ -1,45 +1,30 @@
 namespace RFramework.Common.Misc
 {
+    /// <summary>
+    /// 自增索引类
+    /// </summary>
     public class AutoIndex
     {
-        public static ByteAutoIdx Byte
-        {
-            get
-            {
-                return new ByteAutoIdx();
-            }
-        }
+        public static ByteAutoIdx Byte => new ByteAutoIdx();
 
-        public static ShortAutoIdx Short
-        {
-            get
-            {
-                return new ShortAutoIdx();
-            }
-        }
+        public static ShortAutoIdx Short => new ShortAutoIdx();
 
-        public static IntAutoIdx Int
-        {
-            get
-            {
-                return new IntAutoIdx();
-            }
-        }
+        public static IntAutoIdx Int => new IntAutoIdx();
     }
 
     public class AutoIndex<T> where T : struct
     {
-        protected T _idx;
+        protected T Idx;
 
         public AutoIndex(T start)
         {
-            _idx = start;
+            Idx = start;
         }
 
         public T Get()
         {
             OnIncIdx();
-            return _idx;
+            return Idx;
         }
 
         protected virtual void OnIncIdx()
@@ -55,7 +40,7 @@ namespace RFramework.Common.Misc
 
         protected override void OnIncIdx()
         {
-            _idx += 1;
+            Idx += 1;
         }
     }
 
@@ -67,7 +52,7 @@ namespace RFramework.Common.Misc
 
         protected override void OnIncIdx()
         {
-            _idx += 1;
+            Idx += 1;
         }
     }
 
@@ -80,7 +65,7 @@ namespace RFramework.Common.Misc
 
         protected override void OnIncIdx()
         {
-            _idx += 1;
+            Idx += 1;
         }
     }
 
