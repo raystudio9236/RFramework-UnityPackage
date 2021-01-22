@@ -29,9 +29,10 @@ namespace RFramework.Common.Collections
             _items = capacity == 0 ? Empty : new T[capacity];
         }
 
+
         public SList(T[] arr)
         {
-            if (arr == null)
+            if (arr is null)
                 throw new ArgumentException("Array cannot be null");
 
             var count = arr.Length;
@@ -39,6 +40,21 @@ namespace RFramework.Common.Collections
             if (count > 0)
             {
                 arr.CopyTo(_items, 0);
+                _size = count;
+            }
+        }
+
+        public SList(SList<T> list)
+        {
+            if (list is null)
+                throw new ArgumentNullException(nameof(list));
+
+            var count = list.Count;
+            _items = count == 0 ? Empty : new T[count];
+
+            if (count > 0)
+            {
+                list.CopyTo(_items);
                 _size = count;
             }
         }
@@ -76,15 +92,15 @@ namespace RFramework.Common.Collections
         {
             get
             {
-                if (index > _size)
-                    throw new ArgumentOutOfRangeException(nameof(index));
+                if (index >= _size)
+                    throw new IndexOutOfRangeException();
 
                 return _items[index];
             }
             set
             {
-                if (index > _size)
-                    throw new ArgumentOutOfRangeException(nameof(index));
+                if (index >= _size)
+                    throw new IndexOutOfRangeException();
 
                 _items[index] = value;
             }
@@ -113,10 +129,10 @@ namespace RFramework.Common.Collections
 
         public bool Contains(T item)
         {
-            if (item == null)
+            if (item is null)
             {
                 for (var i = 0; i < _size; i++)
-                    if (_items[i] == null)
+                    if (_items[i] is null)
                         return true;
 
                 return false;
@@ -159,7 +175,7 @@ namespace RFramework.Common.Collections
 
         public T Find(Predicate<T> predicate)
         {
-            if (predicate == null)
+            if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
 
             for (var i = 0; i < _size; i++)
@@ -171,7 +187,7 @@ namespace RFramework.Common.Collections
 
         public SList<T> FindAll(Predicate<T> predicate)
         {
-            if (predicate == null)
+            if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
 
             var result = new SList<T>();
@@ -202,7 +218,7 @@ namespace RFramework.Common.Collections
             if (count < 0 || startIndex > _size - count)
                 throw new ArgumentOutOfRangeException(nameof(count));
 
-            if (predicate == null)
+            if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
 
             var endIndex = startIndex + count;
@@ -217,7 +233,7 @@ namespace RFramework.Common.Collections
 
         public T FindLast(Predicate<T> predicate)
         {
-            if (predicate == null)
+            if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
 
             for (var i = _size - 1; i >= 0; i--)
@@ -241,7 +257,7 @@ namespace RFramework.Common.Collections
 
         public int FindLastIndex(int startIndex, int count, Predicate<T> predicate)
         {
-            if (predicate == null)
+            if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
 
             if (startIndex > _size)
@@ -305,7 +321,7 @@ namespace RFramework.Common.Collections
 
         public void InsertRange(int index, SList<T> list)
         {
-            if (list == null)
+            if (list is null)
                 throw new ArgumentNullException(nameof(list));
 
             if (index > _size)
@@ -377,7 +393,7 @@ namespace RFramework.Common.Collections
 
         public int RemoveAll(Predicate<T> predicate)
         {
-            if (predicate == null)
+            if (predicate is null)
                 throw new ArgumentNullException(nameof(predicate));
 
             var freeIndex = 0;
