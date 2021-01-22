@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using RFramework.Common.Log;
 
-namespace RFramework.Common.File.Utils
+namespace RFramework.Common.File
 {
     /// <summary>
     /// 文件操作辅助静态类
