@@ -284,7 +284,7 @@ namespace RFramework.Common.Event
 
             if (eventData.TryRemove(handler))
             {
-                if (_waitClearList.Contains(eventData))
+                if (!_waitClearList.Contains(eventData))
                     _waitClearList.Add(eventData);
             }
         }
